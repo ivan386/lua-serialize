@@ -11,7 +11,7 @@ function safe_string(value)
 		end)
 		return '"'..v..'"'
 	elseif type(value) == "number" then
-		if (value > 0) and (value < 0) and (value == 0) then -- indeterminate form
+		if not ((value > 0) or (value < 0) or (value == 0)) then -- indeterminate form
 			return "0/0"
 		elseif value == 1/0 then -- infinity
 			return "1/0"
